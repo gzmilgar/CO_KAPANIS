@@ -218,7 +218,7 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
       ENDIF.
 
       DATA(lo_destination) = cl_soap_destination_provider=>create_by_comm_arrangement(
-        comm_scenario = 'ZTRM000_CS_JOURNAL_ENTRY'"'ZFI000_CS_JOURNEYENTRY'
+        comm_scenario = 'ZTRM000_CS_JOURNAL_ENTRY_CREAT'"'ZFI000_CS_JOURNEYENTRY'
       ).
 
       DATA(lo_proxy) = NEW ztrm000_co_journal_entry_creat( destination = lo_destination ).
@@ -384,7 +384,7 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
                                                                 ).
 
       DATA(lo_destination) = cl_soap_destination_provider=>create_by_comm_arrangement(
-        comm_scenario = 'ZTRM000_CS_JOURNAL_ENTRY'"'ZFI000_CS_JOURNEYENTRY'
+        comm_scenario = 'ZTRM000_CS_JOURNAL_ENTRY_CREAT'"ZTRM000_CS_JOURNAL_ENTRY'"'ZFI000_CS_JOURNEYENTRY'
       ).
 
 *      DATA(lo_proxy) = NEW zco_journal_entry_create_reque( destination = lo_destination ).
