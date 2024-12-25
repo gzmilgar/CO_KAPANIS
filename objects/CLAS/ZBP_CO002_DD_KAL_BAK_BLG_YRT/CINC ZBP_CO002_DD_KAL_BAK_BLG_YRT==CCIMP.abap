@@ -118,10 +118,17 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
           ENDIF.
 
           " handle response
-        CATCH cx_soap_destination_error.
+        CATCH cx_soap_destination_error INTO DATA(lr_soap_destination_error).
+          CLEAR: lv_msg.
+          lv_msg = new_message_with_text( text = lr_soap_destination_error->get_longtext( ) severity = cl_abap_behv=>ms-error ).
+
+          APPEND VALUE #( %msg  = lv_msg ) TO reported-zco002_dd_kal_bak_blg_yrt.
           " handle error
-        CATCH cx_ai_system_fault.
-          " handle error
+        CATCH cx_ai_system_fault INTO DATA(lr_system_fault).
+          CLEAR: lv_msg.
+          lv_msg = new_message_with_text( text = lr_system_fault->get_longtext( ) severity = cl_abap_behv=>ms-error ).
+
+          APPEND VALUE #( %msg  = lv_msg ) TO reported-zco002_dd_kal_bak_blg_yrt.
       ENDTRY.
 
     ENDIF.
@@ -335,9 +342,17 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
           APPEND VALUE #( %msg  = lv_msg ) TO reported-zco002_dd_kal_bak_blg_yrt.
 
           " handle response
-        CATCH cx_soap_destination_error.
+        CATCH cx_soap_destination_error INTO DATA(lr_soap_destination_error).
+          CLEAR: lv_msg.
+          lv_msg = new_message_with_text( text = lr_soap_destination_error->get_longtext( ) severity = cl_abap_behv=>ms-error ).
+
+          APPEND VALUE #( %msg  = lv_msg ) TO reported-zco002_dd_kal_bak_blg_yrt.
           " handle error
-        CATCH cx_ai_system_fault.
+        CATCH cx_ai_system_fault INTO DATA(lr_system_fault).
+          CLEAR: lv_msg.
+          lv_msg = new_message_with_text( text = lr_system_fault->get_longtext( ) severity = cl_abap_behv=>ms-error ).
+
+          APPEND VALUE #( %msg  = lv_msg ) TO reported-zco002_dd_kal_bak_blg_yrt.
           " handle error
       ENDTRY.
 
