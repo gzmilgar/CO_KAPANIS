@@ -217,54 +217,54 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
                                               account_assignment = VALUE #( cost_center = ls_bakiye-costcenter ) ) ).
       ENDIF.
 
-*      DATA(lo_destination) = cl_soap_destination_provider=>create_by_comm_arrangement(
-*        comm_scenario = 'ZTRM000_CS_JOURNAL_ENTRY_V2'"ZTRM000_CS_JOURNAL_ENTRY_CREAT'"'ZFI000_CS_JOURNEYENTRY'
-*      ).
+      DATA(lo_destination) = cl_soap_destination_provider=>create_by_comm_arrangement(
+        comm_scenario = 'ZTRM000_CS_JOURNAL_ENTRY_V2'"ZTRM000_CS_JOURNAL_ENTRY_CREAT'"'ZFI000_CS_JOURNEYENTRY'
+      ).
+
+      DATA(lo_proxy) = NEW ztrm000_co_journal_entry_creat( destination = lo_destination ).
+
+      " fill request
+      DATA(ls_str) = VALUE zjournal_entry_create_reques19( message_header = <lfs_data>-message_header
+                                                           journal_entry_create_request = lt_data ).
+      DATA(ls_request) = VALUE zjournal_entry_bulk_create_req( journal_entry_bulk_create_requ = ls_str ).
+
+      lo_proxy->journal_entry_create_request_c(
+        EXPORTING
+          input  = ls_request
+        IMPORTING
+          output = DATA(lo_response)
+      ).
+
+*      TRY.
+*          DATA(destination) = cl_soap_destination_provider=>create_by_comm_arrangement( comm_scenario  = 'ZTRM000_CS_JOURNAL_ENTRY'  ).
 *
-*      DATA(lo_proxy) = NEW ztrm000_co_journal_entry_creat( destination = lo_destination ).
 *
-*      " fill request
-*      DATA(ls_str) = VALUE zjournal_entry_create_reques19( message_header = <lfs_data>-message_header
-*                                                           journal_entry_create_request = lt_data ).
-*      DATA(ls_request) = VALUE zjournal_entry_bulk_create_req( journal_entry_bulk_create_requ = ls_str ).
+**        GET TIME STAMP FIELD DATA(lv_date_time).
+**        DATA(ls_message_header) = VALUE zbusiness_document_message_he2( creation_date_time = lv_date_time ).
 *
-*      lo_proxy->journal_entry_create_request_c(
-*        EXPORTING
-*          input  = ls_request
-*        IMPORTING
-*          output = DATA(lo_response)
-*      ).
-
-      TRY.
-          DATA(destination) = cl_soap_destination_provider=>create_by_comm_arrangement( comm_scenario  = 'ZTRM000_CS_JOURNAL_ENTRY'  ).
-
-
-*        GET TIME STAMP FIELD DATA(lv_date_time).
-*        DATA(ls_message_header) = VALUE zbusiness_document_message_he2( creation_date_time = lv_date_time ).
-
-
-          DATA(proxy) = NEW ztrm000_co_journal_entry_creat( destination = destination ).
-
-          DATA(ls_req19) = VALUE ztrm000_journal_entry_create19( message_header               =  <lfs_data>-message_header
-                                                                 journal_entry_create_request = lt_data ).
-
-
-          " fill request
-          DATA(request) = VALUE ztrm000_journal_entry_bulk_cre( journal_entry_bulk_create_requ = ls_req19 ).
-
-          proxy->journal_entry_create_request_c( EXPORTING input = request
-                                                 IMPORTING output = DATA(lo_response) ).
-
-*        et_response = response-journal_entry_bulk_create_conf-journal_entry_create_confirmat.
-
-          " handle response
-        CATCH cx_soap_destination_error INTO DATA(lr_error).
-          DATA(lv_mess) = lr_error->get_longtext( ).
-
-        CATCH cx_ai_system_fault INTO DATA(lr_error2).
-          DATA(lv_mess2) = lr_error2->get_longtext( ).
-          " handle error
-      ENDTRY.
+*
+*          DATA(proxy) = NEW ztrm000_co_journal_entry_creat( destination = destination ).
+*
+*          DATA(ls_req19) = VALUE ztrm000_journal_entry_create19( message_header               =  <lfs_data>-message_header
+*                                                                 journal_entry_create_request = lt_data ).
+*
+*
+*          " fill request
+*          DATA(request) = VALUE ztrm000_journal_entry_bulk_cre( journal_entry_bulk_create_requ = ls_req19 ).
+*
+*          proxy->journal_entry_create_request_c( EXPORTING input = request
+*                                                 IMPORTING output = DATA(lo_response) ).
+*
+**        et_response = response-journal_entry_bulk_create_conf-journal_entry_create_confirmat.
+*
+*          " handle response
+*        CATCH cx_soap_destination_error INTO DATA(lr_error).
+*          DATA(lv_mess) = lr_error->get_longtext( ).
+*
+*        CATCH cx_ai_system_fault INTO DATA(lr_error2).
+*          DATA(lv_mess2) = lr_error2->get_longtext( ).
+*          " handle error
+*      ENDTRY.
       DATA(ls_response) = VALUE #( lo_response-journal_entry_bulk_create_conf-journal_entry_create_confirmat[ 1 ] OPTIONAL ).
       DATA(ls_response2) = VALUE #( lo_response-journal_entry_bulk_create_conf-journal_entry_create_confirmat[ 2 ] OPTIONAL ).
 
@@ -433,6 +433,31 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
         IMPORTING
           output = DATA(lo_response)
       ).
+
+*      TRY.
+*          DATA(lo_destination) = cl_soap_destination_provider=>create_by_comm_arrangement( comm_scenario  = 'ZTRM000_CS_JOURNAL_ENTRY'  ).
+*
+*          DATA(lo_proxy) = NEW ztrm000_co_journal_entry_creat( destination = lo_destination ).
+*
+*          DATA(ls_str) = VALUE ztrm000_journal_entry_create19( message_header               =  <lfs_data>-message_header
+*                                                                 journal_entry_create_request = lt_data ).
+*
+*
+*          " fill request
+*          DATA(ls_request) = VALUE ztrm000_journal_entry_bulk_cre( journal_entry_bulk_create_requ = ls_str ).
+*
+*          lo_proxy->journal_entry_create_request_c( EXPORTING input = ls_request
+*                                                 IMPORTING output = DATA(lo_response) ).
+*
+*          " handle response
+*        CATCH cx_soap_destination_error INTO DATA(lr_error).
+*          DATA(lv_mess) = lr_error->get_longtext( ).
+*
+*        CATCH cx_ai_system_fault INTO DATA(lr_error2).
+*          DATA(lv_mess2) = lr_error2->get_longtext( ).
+*          " handle error
+*      ENDTRY.
+
 
       DATA(ls_response) = VALUE #( lo_response-journal_entry_bulk_create_conf-journal_entry_create_confirmat[ 1 ] OPTIONAL ).
 
