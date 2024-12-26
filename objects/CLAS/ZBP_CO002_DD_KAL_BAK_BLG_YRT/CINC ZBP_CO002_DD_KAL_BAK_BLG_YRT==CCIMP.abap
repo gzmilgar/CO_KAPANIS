@@ -173,7 +173,7 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
       LOOP AT GROUP <lfs_bakiye> INTO DATA(ls_bakiye).
 
         <lfs_data>-journal_entry-item = VALUE #( BASE <lfs_data>-journal_entry-item
-                                                ( glaccount = VALUE #( content = '8120100001' )
+                                                ( glaccount = VALUE #( content = '8120000002' )
                                                   amount_in_transaction_currency = VALUE zamount( currency_code = ls_bakiye-companycodecurrency
                                                                                                   content = ls_bakiye-amountincompanycodecurrency )
                                                   amount_in_group_currency = COND #( WHEN lv_diff = abap_false
@@ -187,7 +187,7 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
 
         IF lv_diff = abap_true.
           <lfs_data2>-journal_entry-item = VALUE #( BASE <lfs_data2>-journal_entry-item
-                                                  ( glaccount = VALUE #( content = '8120100001' )
+                                                  ( glaccount = VALUE #( content = '8120000002' )
                                                     amount_in_transaction_currency = VALUE zamount( currency_code = ls_bakiye-globalcurrency
                                                                                                     content = ls_bakiye-amountinglobalcurrency )
                                                     amount_in_company_code_currenc = VALUE zamount( currency_code = ls_bakiye-companycodecurrency
@@ -197,7 +197,7 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
       ENDLOOP.
 
       <lfs_data>-journal_entry-item = VALUE #( BASE <lfs_data>-journal_entry-item
-                                             ( glaccount = VALUE #( content = '8120100001' )
+                                             ( glaccount = VALUE #( content = '8120000002' )
                                                amount_in_transaction_currency = VALUE zamount( currency_code = ls_bakiye-companycodecurrency
                                                                                                content = -1 * lv_amt_com )
                                                amount_in_group_currency = COND #( WHEN lv_diff = abap_false
@@ -209,7 +209,7 @@ CLASS lhc_zco002_dd_kal_bak_blg_yrt IMPLEMENTATION.
 
       IF lv_diff = abap_true.
         <lfs_data2>-journal_entry-item = VALUE #( BASE <lfs_data2>-journal_entry-item
-                                            ( glaccount = VALUE #( content = '8120100001' )
+                                            ( glaccount = VALUE #( content = '8120000002' )
                                               amount_in_transaction_currency = VALUE zamount( currency_code = ls_bakiye-globalcurrency
                                                                                               content = -1 * lv_amt_glo )
                                               amount_in_company_code_currenc = VALUE zamount( currency_code = ls_bakiye-companycodecurrency
