@@ -132,7 +132,7 @@
           <lfs_member>-companycodecurrency = 'TRY'.
           <lfs_member>-amountincompanycodecurrency = ls_amount-try_total * ( 100 * <lfs_member>-confirmationyieldquantity / lv_menge_d ) / 100.
 
-          <lfs_member>-globalcurrency = 'EUR'.
+          <lfs_member>-globalcurrency = 'USD'."'EUR'.
           <lfs_member>-amountinglobalcurrency = ls_amount-eur_total * ( 100 * <lfs_member>-confirmationyieldquantity / lv_menge_d ) / 100.
         ENDLOOP.
       ENDIF.
