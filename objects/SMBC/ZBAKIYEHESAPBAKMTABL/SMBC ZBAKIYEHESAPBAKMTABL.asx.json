@@ -16,7 +16,7 @@
     "CHANGED_BY":"SAP_CUSTOMER",
     "CREATED_AT":"+020241115132442",
     "CREATED_BY":"SAP_CUSTOMER",
-    "STATUS":"A",
+    "STATUS":"",
     "DATA_STATUS":"0",
     "BC_GROUP":""
    }
@@ -31,7 +31,7 @@
     "TECHNICAL_ID":"ZBAKIYEHESAPBAKMTABL",
     "DESCRIPTION":"Maintain Bakiye Hesap Bakım Tablosu",
     "NAME":"Bakiye Hesap Bakım Tablosu",
-    "STATUS":"A"
+    "STATUS":""
    },
    {
     "LANGUAGE":"T",

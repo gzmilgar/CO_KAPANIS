@@ -1,76 +1,62 @@
 [
  {
-  "table":"/UI2/STHEAD",
+  "table":"TVIM_IMPL_CLASS",
   "nametab":
   [
    {
-    "NAME":"ID",
+    "NAME":"OBJECTNAME",
     "KEY":"X",
     "TYPE":"C",
-    "LENGTH":35,
+    "LENGTH":30,
     "DECIMALS":-1
    },
    {
-    "NAME":"VERSION",
+    "NAME":"OBJECTTYPE",
     "KEY":"X",
     "TYPE":"C",
     "LENGTH":1,
     "DECIMALS":-1
    },
    {
-    "NAME":"CREATED_BY",
+    "NAME":"VALIDATION_CLASS",
     "KEY":"",
     "TYPE":"C",
-    "LENGTH":12,
+    "LENGTH":30,
     "DECIMALS":-1
    },
    {
-    "NAME":"CREATED_ON",
-    "KEY":"",
-    "TYPE":"P",
-    "LENGTH":8,
-    "DECIMALS":0
-   },
-   {
-    "NAME":"MODIFIED_BY",
+    "NAME":"ADDITIONAL_SAVE_CLASS",
     "KEY":"",
     "TYPE":"C",
-    "LENGTH":12,
+    "LENGTH":30,
     "DECIMALS":-1
    },
    {
-    "NAME":"MODIFIED_ON",
-    "KEY":"",
-    "TYPE":"P",
-    "LENGTH":8,
-    "DECIMALS":0
-   },
-   {
-    "NAME":"BASE_ID",
+    "NAME":"CHANGE_LOGS_CLASS",
     "KEY":"",
     "TYPE":"C",
-    "LENGTH":35,
+    "LENGTH":30,
     "DECIMALS":-1
    },
    {
-    "NAME":"SORT_PRIORITY",
-    "KEY":"",
-    "TYPE":"P",
-    "LENGTH":5,
-    "DECIMALS":3
-   },
-   {
-    "NAME":"MERGE_ID",
+    "NAME":"ENQUEUE_DEQUEUE_CLASS",
     "KEY":"",
     "TYPE":"C",
-    "LENGTH":35,
+    "LENGTH":30,
     "DECIMALS":-1
    },
    {
-    "NAME":"ABAP_LANGUAGE_VERSION",
+    "NAME":"AUTHORITY_CHECK_CLASS",
     "KEY":"",
     "TYPE":"C",
-    "LENGTH":1,
+    "LENGTH":30,
+    "DECIMALS":-1
+   },
+   {
+    "NAME":"DB_SAVE_REPLACE_CLASS",
+    "KEY":"",
+    "TYPE":"C",
+    "LENGTH":30,
     "DECIMALS":-1
    }
   ],
@@ -78,7 +64,7 @@
   [
    {
     "CLIENTDEPENDENCY":"NO",
-    "DELIVERYCLASS":"W",
+    "DELIVERYCLASS":"S",
     "TABART":"APPL2",
     "TABFORM":"T",
     "REFNAME":"-"

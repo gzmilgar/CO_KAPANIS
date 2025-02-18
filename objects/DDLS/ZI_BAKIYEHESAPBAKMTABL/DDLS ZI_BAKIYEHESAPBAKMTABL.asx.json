@@ -12,7 +12,7 @@
     "SOURCE":"@EndUserText.label: 'Bakiye Hesap Bakım Tablosu'\r\n@AccessControl.authorizationCheck: #CHECK\r\n@Metadata.allowExtensions: true\r\ndefine view entity ZI_BakiyeHesapBakMTabl\r\n  as select from ZCO002_T_BKY_ACC\r\n  association to parent ZI_BakiyeHesapBakMTabl_S as _BakiyeHesapBakMTAll on $projection.SingletonID = _BakiyeHesapBakMTAll.SingletonID\r\n{\r\n  key SAKNR_LOW as SaknrLow,\r\n  key SAKNR_HIGH as SaknrHigh,\r\n  @Consumption.hidden: true\r\n  1 as SingletonID,\r\n  _BakiyeHesapBakMTAll\r\n  \r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZCO002_T_BKY_ACC\"\n],\n\"ASSOCIATED\":\n[\n\"ZI_BAKIYEHESAPBAKMTABL_S\"\n],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"J,WT429",
+    "CHGFLAG":"J,T429",
     "SOURCE_TYPE":"W",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"

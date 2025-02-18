@@ -12,7 +12,7 @@
     "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'Kapanış Kalan Bakiye Belge Yaratma Data Definition'\r\n@Metadata.ignorePropagatedAnnotations: true\r\ndefine root view entity ZCO002_DD_KAL_BAK_BLG_YRT\r\n  as select from zco002_t_bakiye\r\n{\r\n  key costcenter                  as Costcenter,\r\n  key orderid                     as Orderid,\r\n  key fiscalyearperiod            as Fiscalyearperiod,\r\n  key companycode                 as Companycode,\r\n      @Semantics.quantity.unitOfMeasure : 'meinh'\r\n      confirmationyieldquantity   as Confirmationyieldquantity,\r\n      meinh                       as Meinh,\r\n      @Semantics.amount.currencyCode : 'companycodecurrency'\r\n      amountincompanycodecurrency as Amountincompanycodecurrency,\r\n      companycodecurrency         as Companycodecurrency,\r\n      @Semantics.amount.currencyCode : 'globalcurrency'\r\n      amountinglobalcurrency      as Amountinglobalcurrency,\r\n      globalcurrency              as Globalcurrency,\r\n      status                      as Status,\r\n      accdocument                 as Accdocument,\r\n      accdocument_eur             as AccdocumentEur,\r\n      reverse_document            as ReverseDocument,\r\n      reverse_document_eur        as ReverseDocumentEur\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZCO002_T_BAKIYE\"\n],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":"J,W4T2",
     "SOURCE_TYPE":"W",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"

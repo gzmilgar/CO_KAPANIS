@@ -12,7 +12,7 @@
     "SOURCE":"@EndUserText.label: 'Copy Bakiye Hesap Bakım Tablosu'\r\ndefine abstract entity ZD_CopyBakiyeHesapBakMTablP\r\n{\r\n  @EndUserText.label: 'New G/L Account'\r\n  SaknrLow : SAKNR;\r\n  @EndUserText.label: 'New G/L Account'\r\n  SaknrHigh : SAKNR;\r\n  \r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":",4",
     "SOURCE_TYPE":"A",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -44,7 +44,7 @@
     "AS4LOCAL":"N",
     "FIELDNAME":"SAKNRHIGH",
     "DEPTH":0,
-    "DDTEXT":"G/L Account Number",
+    "DDTEXT":"",
     "FIELDLABEL":"New G/L Account",
     "QUICKINFO":""
    },
@@ -56,7 +56,7 @@
     "AS4LOCAL":"N",
     "FIELDNAME":"SAKNRLOW",
     "DEPTH":0,
-    "DDTEXT":"G/L Account Number",
+    "DDTEXT":"",
     "FIELDLABEL":"New G/L Account",
     "QUICKINFO":""
    }

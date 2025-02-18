@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@EndUserText.label: 'Kapanış Kalan Bakiye Custom Entity'\r\n@ObjectModel.query.implementedBy:'ABAP:ZCO002_CL_BAKIYE_DAGITMA'\r\n@Search.searchable: true\r\n@Metadata.allowExtensions: true\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Kapanış Kalan Bakiye',\r\n                typeName: 'Kapanış Kalan Bakiye',\r\n                title:{ type: #STANDARD, label: 'Kapanış Kalan Bakiye', value: 'CostCenter' }\r\n           }\r\n}\r\ndefine root custom entity zco002_cev_kalan_bakiye\r\n{\r\n\r\n      @UI.facet                   : [{ id: 'prod_id',\r\n                    purpose       : #STANDARD,\r\n                    type          : #IDENTIFICATION_REFERENCE,\r\n                    label         : 'ID',\r\n                    position      : 10}]\r\n      @UI                         : { lineItem      : [{ position: 10, label: 'Masraf Yeri', importance: #HIGH },\r\n                               { type: #FOR_ACTION, dataAction: 'btnRecord' , label: 'Log Kayıt', inline: false }\r\n                               ],\r\n             identification       : [{ position: 10, label: 'ID' }\r\n             ]\r\n      }\r\n      @Search.defaultSearchElement: true\r\n      @Consumption.filter.hidden  : true\r\n  key CostCenter                  : kostl;\r\n      @UI                         : { lineItem      : [{ position: 20, label: 'Sipariş No', importance: #HIGH }],\r\n             identification       : [{ position: 20, label: 'Sipariş No' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n  key OrderId                     : aufnr;\r\n\r\n      @UI                         : { lineItem      : [{ position: 30, label: 'Periyod', importance: #HIGH }],\r\n             identification       : [{ position: 30, label: 'Periyod' }], selectionField: [{ position: 10 }]\r\n      }\r\n      @Semantics.fiscal.period: true\r\n      @Consumption.valueHelpDefinition: [{ entity.name: 'ZCO002_DD_FISCALPERIOD',entity.element: 'FiscalYearPeriod' }]\r\n      @Consumption.filter.mandatory: true\r\n      @Consumption.filter.selectionType: #SINGLE\r\n\r\n  key FiscalYearPeriod            : fis_jahrper_conv;\r\n\r\n      @UI                         : { lineItem      : [{ position: 40, label: 'Şirket Kodu', importance: #HIGH }],\r\n             identification       : [{ position: 40, label: 'Şirket Kodu' }], selectionField: [{ position: 10 }]\r\n      }\r\n      @Consumption.valueHelpDefinition: [{ entity.name: 'I_CompanyCodeVH',entity.element: 'CompanyCode' }]\r\n      @Consumption.filter.mandatory: true\r\n      @Consumption.filter.selectionType: #SINGLE\r\n  key CompanyCode                 : bukrs;\r\n\r\n      @UI                         : { lineItem      : [{ position: 50, label: 'Üretim Miktarı', importance: #HIGH }],\r\n             identification       : [{ position: 50, label: 'Üretim Miktarı' }]\r\n      }\r\n      @Semantics.quantity.unitOfMeasure : 'meinh'\r\n      @Consumption.filter.hidden  : true\r\n      ConfirmationYieldQuantity   : menge_d;\r\n\r\n      @UI                         : { lineItem      : [{ position: 60, label: 'Birim', importance: #HIGH }],\r\n             identification       : [{ position: 60, label: 'Birim' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n      Meinh                       : meinh;\r\n\r\n      @UI                         : { lineItem      : [{ position: 70, label: 'Siparişe Kaydedilecek Tutar TRY', importance: #HIGH }],\r\n             identification       : [{ position: 70, label: 'Siparişe Kaydedilecek Tutar TRY' }]\r\n      }\r\n      @Semantics.amount.currencyCode: 'CompanyCodeCurrency'\r\n      @Consumption.filter.hidden  : true\r\n      AmountInCompanyCodeCurrency : zco002_de_fis_hsl;\r\n\r\n      @UI                         : { lineItem      : [{ position: 80, label: 'Şirket Kodu Para Birimi', importance: #HIGH }],\r\n             identification       : [{ position: 80, label: 'Şirket Kodu Para Birimi' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n      @UI.hidden: true\r\n      CompanyCodeCurrency         : displaycurrency;\r\n\r\n      @UI                         : { lineItem      : [{ position: 90, label: 'Siparişe Kaydedilecek Tutar EUR', importance: #HIGH }],\r\n             identification       : [{ position: 90, label: 'Siparişe Kaydedilecek Tutar EUR' }]\r\n      }\r\n      @Semantics.amount.currencyCode: 'GlobalCurrency'\r\n      @Consumption.filter.hidden  : true\r\n      AmountInGlobalCurrency      : zco002_de_fis_hsl;\r\n\r\n      @UI                         : { lineItem      : [{ position: 100, label: 'Grup Para Birimi', importance: #HIGH }],\r\n             identification       : [{ position: 100, label: 'Grup Para Birimi' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n      @UI.hidden: true\r\n      GlobalCurrency              : displaycurrency;\r\n\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@EndUserText.label: 'Kapanış Kalan Bakiye Custom Entity'\r\n@ObjectModel.query.implementedBy:'ABAP:ZCO002_CL_BAKIYE_DAGITMA'\r\n@Search.searchable: true\r\n@Metadata.allowExtensions: true\r\n@UI:{\r\nheaderInfo:{\r\n                typeNamePlural: 'Kapanış Kalan Bakiye',\r\n                typeName: 'Kapanış Kalan Bakiye',\r\n                title:{ type: #STANDARD, label: 'Kapanış Kalan Bakiye', value: 'CostCenter' }\r\n           }\r\n}\r\ndefine root custom entity zco002_cev_kalan_bakiye\r\n{\r\n\r\n      @UI.facet                   : [{ id: 'prod_id',\r\n                    purpose       : #STANDARD,\r\n                    type          : #IDENTIFICATION_REFERENCE,\r\n                    label         : 'ID',\r\n                    position      : 10}]\r\n      @UI                         : { lineItem      : [{ position: 10, label: 'Masraf Yeri', importance: #HIGH },\r\n                               { type: #FOR_ACTION, dataAction: 'btnRecord' , label: 'Log Kayıt', inline: false }\r\n                               ],\r\n             identification       : [{ position: 10, label: 'ID' }\r\n             ]\r\n      }\r\n      @Search.defaultSearchElement: true\r\n      @Consumption.filter.hidden  : true\r\n  key CostCenter                  : kostl;\r\n      @UI                         : { lineItem      : [{ position: 20, label: 'Sipariş No', importance: #HIGH }],\r\n             identification       : [{ position: 20, label: 'Sipariş No' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n  key OrderId                     : aufnr;\r\n\r\n      @UI                         : { lineItem      : [{ position: 30, label: 'Periyod', importance: #HIGH }],\r\n             identification       : [{ position: 30, label: 'Periyod' }], selectionField: [{ position: 10 }]\r\n      }\r\n      @Semantics.fiscal.period: true\r\n      @Consumption.valueHelpDefinition: [{ entity.name: 'ZCO002_DD_FISCALPERIOD',entity.element: 'FiscalYearPeriod' }]\r\n      @Consumption.filter.mandatory: true\r\n      @Consumption.filter.selectionType: #SINGLE\r\n\r\n  key FiscalYearPeriod            : fis_jahrper_conv;\r\n\r\n      @UI                         : { lineItem      : [{ position: 40, label: 'Şirket Kodu', importance: #HIGH }],\r\n             identification       : [{ position: 40, label: 'Şirket Kodu' }], selectionField: [{ position: 10 }]\r\n      }\r\n      @Consumption.valueHelpDefinition: [{ entity.name: 'I_CompanyCodeVH',entity.element: 'CompanyCode' }]\r\n      @Consumption.filter.mandatory: true\r\n      @Consumption.filter.selectionType: #SINGLE\r\n  key CompanyCode                 : bukrs;\r\n\r\n      @UI                         : { lineItem      : [{ position: 50, label: 'Üretim Miktarı', importance: #HIGH }],\r\n             identification       : [{ position: 50, label: 'Üretim Miktarı' }]\r\n      }\r\n      @Semantics.quantity.unitOfMeasure : 'meinh'\r\n      @Consumption.filter.hidden  : true\r\n      ConfirmationYieldQuantity   : menge_d;\r\n\r\n      @UI                         : { lineItem      : [{ position: 60, label: 'Birim', importance: #HIGH }],\r\n             identification       : [{ position: 60, label: 'Birim' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n      Meinh                       : meinh;\r\n\r\n      @UI                         : { lineItem      : [{ position: 70, label: 'Siparişe Kaydedilecek Tutar TRY', importance: #HIGH }],\r\n             identification       : [{ position: 70, label: 'Siparişe Kaydedilecek Tutar TRY' }]\r\n      }\r\n      @Semantics.amount.currencyCode: 'CompanyCodeCurrency'\r\n      @Consumption.filter.hidden  : true\r\n      AmountInCompanyCodeCurrency : zco002_de_fis_hsl;\r\n\r\n      @UI                         : { lineItem      : [{ position: 80, label: 'Şirket Kodu Para Birimi', importance: #HIGH }],\r\n             identification       : [{ position: 80, label: 'Şirket Kodu Para Birimi' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n      @UI.hidden: true\r\n      CompanyCodeCurrency         : displaycurrency;\r\n\r\n      @UI                         : { lineItem      : [{ position: 90, label: 'Siparişe Kaydedilecek Tutar USD', importance: #HIGH }],\r\n             identification       : [{ position: 90, label: 'Siparişe Kaydedilecek Tutar USD' }]\r\n      }\r\n      @Semantics.amount.currencyCode: 'GlobalCurrency'\r\n      @Consumption.filter.hidden  : true\r\n      AmountInGlobalCurrency      : zco002_de_fis_hsl;\r\n\r\n      @UI                         : { lineItem      : [{ position: 100, label: 'Grup Para Birimi', importance: #HIGH }],\r\n             identification       : [{ position: 100, label: 'Grup Para Birimi' }]\r\n      }\r\n      @Consumption.filter.hidden  : true\r\n      @UI.hidden: true\r\n      GlobalCurrency              : displaycurrency;\r\n\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[],\n\"ASSOCIATED\":\n[],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"",
+    "CHGFLAG":",W4T",
     "SOURCE_TYPE":"Q",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -29,132 +29,6 @@
     "DDLANGUAGE":"E",
     "AS4LOCAL":"N",
     "DDTEXT":"Kapanış Kalan Bakiye Custom Entity"
-   }
-  ]
- },
- {
-  "table":"DDDDLSRC03NT",
-  "data":
-  [
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"AMOUNTINCOMPANYCODECURRENCY",
-    "DEPTH":0,
-    "DDTEXT":"Fis Hsl",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"AMOUNTINGLOBALCURRENCY",
-    "DEPTH":0,
-    "DDTEXT":"Fis Hsl",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"COMPANYCODE",
-    "DEPTH":0,
-    "DDTEXT":"Company Code",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"COMPANYCODECURRENCY",
-    "DEPTH":0,
-    "DDTEXT":"Display Currency",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"CONFIRMATIONYIELDQUANTITY",
-    "DEPTH":0,
-    "DDTEXT":"Quantity",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"COSTCENTER",
-    "DEPTH":0,
-    "DDTEXT":"Cost Center",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"FISCALYEARPERIOD",
-    "DEPTH":0,
-    "DDTEXT":"Fiscal Year Period",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"GLOBALCURRENCY",
-    "DEPTH":0,
-    "DDTEXT":"Display Currency",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"MEINH",
-    "DEPTH":0,
-    "DDTEXT":"Unit of Measure for Display",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
-   },
-   {
-    "DDLNAME":"ZCO002_CEV_KALAN_BAKIYE",
-    "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
-    "NODENAME":".NODE1",
-    "DDLANGUAGE":"E",
-    "AS4LOCAL":"N",
-    "FIELDNAME":"ORDERID",
-    "DEPTH":0,
-    "DDTEXT":"Order Number",
-    "FIELDLABEL":"",
-    "QUICKINFO":""
    }
   ]
  },
@@ -284,7 +158,7 @@
     "LFIELDNAME":"AMOUNTINGLOBALCURRENCY",
     "NAME":"UI.IDENTIFICATION$1$.LABEL",
     "POSITION":106,
-    "VALUE":"'Siparişe Kaydedilecek Tutar EUR'"
+    "VALUE":"'Siparişe Kaydedilecek Tutar USD'"
    },
    {
     "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
@@ -305,7 +179,7 @@
     "LFIELDNAME":"AMOUNTINGLOBALCURRENCY",
     "NAME":"UI.LINEITEM$1$.LABEL",
     "POSITION":103,
-    "VALUE":"'Siparişe Kaydedilecek Tutar EUR'"
+    "VALUE":"'Siparişe Kaydedilecek Tutar USD'"
    },
    {
     "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
@@ -1039,14 +913,14 @@
     "DDLANGUAGE":"E",
     "LFIELDNAME":"AMOUNTINGLOBALCURRENCY",
     "NAME":"UI.IDENTIFICATION$1$.LABEL",
-    "TEXT":"Siparişe Kaydedilecek Tutar EUR"
+    "TEXT":"Siparişe Kaydedilecek Tutar USD"
    },
    {
     "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",
     "DDLANGUAGE":"E",
     "LFIELDNAME":"AMOUNTINGLOBALCURRENCY",
     "NAME":"UI.LINEITEM$1$.LABEL",
-    "TEXT":"Siparişe Kaydedilecek Tutar EUR"
+    "TEXT":"Siparişe Kaydedilecek Tutar USD"
    },
    {
     "STRUCOBJN":"ZCO002_CEV_KALAN_BAKIYE",

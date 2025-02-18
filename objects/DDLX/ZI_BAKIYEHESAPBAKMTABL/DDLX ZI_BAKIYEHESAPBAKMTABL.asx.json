@@ -228,6 +228,22 @@
   ]
  },
  {
+  "table":"DDLX_RT_REFS",
+  "data":
+  [
+   {
+    "DDLXNAME":"ZI_BAKIYEHESAPBAKMTABL",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.VALUE",
+    "PATH":"SAKNRLOW",
+    "REF_OBJECT_TYPE":"STOB",
+    "REF_OBJECT_SUBTYPE":"DOF",
+    "REF_OBJECT_NAME":"ZI_BAKIYEHESAPBAKMTABL",
+    "REF_OBJECT_ELEMENT":"SAKNRLOW"
+   }
+  ]
+ },
+ {
   "table":"TADIR",
   "data":
   [

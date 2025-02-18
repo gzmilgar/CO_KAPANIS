@@ -157,7 +157,8 @@
     "BCMTDSYN":0,
     "BCEVTCAT":0,
     "TYPESRC_LENG":0,
-    "TYPESRC":""
+    "TYPESRC":"",
+    "MTDSQLSERVICE":""
    },
    {
     "CLSNAME":"ZCO002_CL_BAKIYE_DAGITMA",
@@ -215,7 +216,8 @@
     "BCMTDSYN":0,
     "BCEVTCAT":0,
     "TYPESRC_LENG":45,
-    "TYPESRC":"lt_tt TYPE TABLE OF zco002_cev_kalan_bakiye\r\n"
+    "TYPESRC":"lt_tt TYPE TABLE OF zco002_cev_kalan_bakiye\r\n",
+    "MTDSQLSERVICE":""
    }
   ]
  },

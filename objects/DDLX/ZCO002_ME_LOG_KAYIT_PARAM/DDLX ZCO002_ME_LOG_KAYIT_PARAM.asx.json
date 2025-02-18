@@ -7,9 +7,9 @@
     "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2024-11-15",
-    "CHANGED_AT":"13:37:23",
-    "UUID":"CB92D17136801EEFA8EAD7CF4434E294",
+    "CHANGED_ON":"2025-02-18",
+    "CHANGED_AT":"16:33:29",
+    "UUID":"395F5A11FCFB1EDFBBC2C2AC89CDA37D",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer: #CORE\r\nannotate entity zco002_dd_log_kayit_param with\r\n{\r\n  @Consumption.valueHelpDefinition: [{ entity.name: 'I_CompanyCodeVH',entity.element: 'CompanyCode' }]\r\n  companycode;\r\n  @Consumption.valueHelpDefinition: [{ entity.name: 'ZCO002_DD_FISCALPERIOD',entity.element: 'FiscalYearPeriod' }]\r\n  FiscalYearPeriod;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer: #CORE\r\nannotate entity zco002_dd_log_kayit_param with\r\n{\r\n@UI                         : { lineItem      : [{ position: 10, label: 'Company Code', importance: #HIGH }],\r\n             identification       : [{ position: 10, label: 'Company Code' }]\r\n      }\r\n//  @Consumption.valueHelpDefinition: [{ entity.name: 'I_CompanyCodeVH',entity.element: 'CompanyCode' }]\r\n  companycode;\r\n//  @Consumption.valueHelpDefinition: [{ entity.name: 'ZCO002_DD_FISCALPERIOD',entity.element: 'FiscalYearPeriod' }]\r\n@UI                         : { lineItem      : [{ position: 20, label: 'Fiscal Year Period', importance: #HIGH }],\r\n             identification       : [{ position: 20, label: 'Fiscal Year Period' }]\r\n      }\r\n  FiscalYearPeriod;\r\n\r\n}"
    }
   ]
  },
@@ -45,30 +45,106 @@
    {
     "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
     "ELEMENT":"COMPANYCODE",
-    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "NAME":"UI.IDENTIFICATION$1$.LABEL",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'CompanyCode'"
+    "VALUE":"'Company Code'"
    },
    {
     "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
     "ELEMENT":"COMPANYCODE",
-    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'I_CompanyCodeVH'"
+    "VALUE":"10"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.LINEITEM$1$.IMPORTANCE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#HIGH"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.LINEITEM$1$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Company Code'"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"10"
    },
    {
     "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
     "ELEMENT":"FISCALYEARPERIOD",
-    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.ELEMENT",
+    "NAME":"UI.IDENTIFICATION$1$.LABEL",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'FiscalYearPeriod'"
+    "VALUE":"'Fiscal Year Period'"
    },
    {
     "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
     "ELEMENT":"FISCALYEARPERIOD",
-    "NAME":"CONSUMPTION.VALUEHELPDEFINITION$1$.ENTITY.NAME",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
-    "VALUE":"'ZCO002_DD_FISCALPERIOD'"
+    "VALUE":"20"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "ELEMENT":"FISCALYEARPERIOD",
+    "NAME":"UI.LINEITEM$1$.IMPORTANCE",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#HIGH"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "ELEMENT":"FISCALYEARPERIOD",
+    "NAME":"UI.LINEITEM$1$.LABEL",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'Fiscal Year Period'"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "ELEMENT":"FISCALYEARPERIOD",
+    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"20"
+   }
+  ]
+ },
+ {
+  "table":"DDLX_RT_DATA_T",
+  "data":
+  [
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.IDENTIFICATION$1$.LABEL",
+    "TEXT":"Company Code"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.LINEITEM$1$.LABEL",
+    "TEXT":"Company Code"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"FISCALYEARPERIOD",
+    "NAME":"UI.IDENTIFICATION$1$.LABEL",
+    "TEXT":"Fiscal Year Period"
+   },
+   {
+    "DDLXNAME":"ZCO002_ME_LOG_KAYIT_PARAM",
+    "DDLANGUAGE":"E",
+    "ELEMENT":"FISCALYEARPERIOD",
+    "NAME":"UI.LINEITEM$1$.LABEL",
+    "TEXT":"Fiscal Year Period"
    }
   ]
  },
@@ -81,8 +157,8 @@
     "EXTENDED_ARTIFACT":"ZCO002_DD_LOG_KAYIT_PARAM",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"CB92D17136801EEFA8EAD7CF4434E294",
-    "RT_HASH":"BA0EBDF2E1F7A89D287198E4E30B3AA5E6124592",
+    "DT_UUID":"395F5A11FCFB1EDFBBC2C2AC89CDA37D",
+    "RT_HASH":"572EA326D97A7ADF343E356A0847838606533D75",
     "GEN_VERSION":"0",
     "TYPE":"0"
    }
