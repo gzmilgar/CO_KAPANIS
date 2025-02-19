@@ -15,6 +15,7 @@
            AND i~fiscalyearperiod EQ @iv_period
            AND i~companycode  EQ @iv_bukrs
            AND cs~costcentercategory EQ 'F'
+           AND i~IsStatisticalCostCenter IS INITIAL
          GROUP BY i~costcenter
          ORDER BY i~costcenter
          INTO TABLE @DATA(lt_amount_total).
